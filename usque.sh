@@ -8,7 +8,8 @@ NC='\033[0m'
 check_usque() {
     if command -v usque >/dev/null 2>&1; then
         return 0
-    else                                                        return 1
+    else                                                        
+        return 1
     fi
 }
 
