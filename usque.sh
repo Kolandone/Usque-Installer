@@ -43,9 +43,9 @@ stop_usque() {
 run_usque() {
     stop_usque
     case $1 in
-        1) echo -e "${BLUE}Running HTTP Proxy on IPv4${NC}"; usque http-proxy --ipv4 ;;
+        1) echo -e "${BLUE}Running HTTP Proxy on IPv4${NC}"; usque http-proxy ;;
         2) echo -e "${BLUE}Running HTTP Proxy on IPv6${NC}"; usque http-proxy --ipv6 ;;
-        3) echo -e "${BLUE}Running SOCKS5 on IPv4${NC}"; usque socks --ipv4 ;;
+        3) echo -e "${BLUE}Running SOCKS5 on IPv4${NC}"; usque socks ;;
         4) echo -e "${BLUE}Running SOCKS5 on IPv6${NC}"; usque socks --ipv6 ;;
         5) echo -e "${BLUE}Register${NC}"; usque register ;;
         6) echo -e "${BLUE}Show usque version${NC}"; usque version ;;
