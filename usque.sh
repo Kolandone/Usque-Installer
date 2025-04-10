@@ -16,19 +16,18 @@ check_usque() {
 install_usque() {
     echo -e "${BLUE}Installing usque...${NC}"
     pkg update -y && pkg install git golang -y
-    mkdir -p "$HOME/usque"
     cd "$HOME" || exit
-    git clone https://github.com/Diniboy1123/usque.git usque
-    cd "$HOME/usque" || exit
+    git clone https://github.com/Diniboy1123/usque.git
+    cd usque || exit
     go build .
     if [ $? -eq 0 ]; then
         chmod +x usque
-        # Check if PATH already contains the correct entry to avoid duplicates
-        if ! grep -q "export PATH=\$PATH:$HOME/usque" "$HOME/.bashrc"; then
-            echo "export PATH=\$PATH:$HOME/usque" >> "$HOME/.bashrc"
-        fi
-        source "$HOME/.bashrc"
         
+        sed -i '/export PATH=\$PATH:.*usque/d' "$HOME/.bashrc"
+        # Add the correct PATH
+        echo "export PATH=\$PATH:$HOME/usque" >> "$HOME/.bashrc"
+        source "$HOME/.bashrc"
+        echo -e "${GREEN}usque installed successfully!${NC}"
     else
         echo -e "${RED}Error installing usque${NC}"
         exit 1
