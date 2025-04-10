@@ -27,7 +27,7 @@ install_usque() {
         
         echo "export PATH=\$PATH:$HOME/usque" >> "$HOME/.bashrc"
         source "$HOME/.bashrc"
-        echo -e "${GREEN}usque installed successfully!${NC}"
+        
     else
         echo -e "${RED}Error installing usque${NC}"
         exit 1
