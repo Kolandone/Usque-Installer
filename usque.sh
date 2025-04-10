@@ -24,7 +24,7 @@ install_usque() {
         chmod +x usque
         
         sed -i '/export PATH=\$PATH:.*usque/d' "$HOME/.bashrc"
-        # Add the correct PATH
+        
         echo "export PATH=\$PATH:$HOME/usque" >> "$HOME/.bashrc"
         source "$HOME/.bashrc"
         echo -e "${GREEN}usque installed successfully!${NC}"
